@@ -13,6 +13,23 @@ Exercise 4.1: TDD & Test Scenarios
 ● Use create-react-app to create a React app and push it to GitHub.
 ● Deploy a React app to GitHub Pages.
 
+Exercise 4.2: Intro to Serverless Functions & Authentication
+● Evaluate the merit and usefulness of serverless development
+● Connect a React app with a protected API
+● Prepare an OAuth client for authorization and authentication
+● Obtain AWS credentials for future use
+
+Exercise 4.3: Writing & Testing AWS Lambda Functions
+● Write Lambda functions to implement serverless technology in an app
+● Test Lambda functions
+● Create a serverless deployment package
+
+Exercise 4.4: Unit Testing
+● Analyze use cases for unit tests
+● Write unit tests for an app
+● Test components using mock data
+● Develop implementation code in response to unit tests
+
 USER STORIES
 
 Feature 1: Filter Events By City
