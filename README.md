@@ -30,6 +30,12 @@ Exercise 4.4: Unit Testing
 ● Test components using mock data
 ● Develop implementation code in response to unit tests
 
+Exercise 4.5: Integration Testing
+● Analyze use cases for integration tests
+● Write integration tests
+● Develop implementation code in response to integration tests
+● Integrate real data from an API into a web app
+
 USER STORIES
 
 Feature 1: Filter Events By City
