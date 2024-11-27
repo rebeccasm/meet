@@ -32,14 +32,15 @@ const App = () => {
         allLocations={allLocations} 
         setCurrentCity={setCurrentCity} 
       />
-      <EventList 
-        events={events} 
-      />
       <NumberOfEvents 
         setErrorAlert={setErrorAlert}
         currentNOE={currentNOE}
         setCurrentNOE={setCurrentNOE}
       />
+      <EventList 
+        events={events} 
+      />
+
     </div>
   );
 }
