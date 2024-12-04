@@ -45,10 +45,10 @@ defineFeature(feature, test => {
 
         when('I type a number on number-of-events field', async () => {
           const user = userEvent.setup();
-          const allEvents = await mockData;
-            const NumberOfEventComponent = render(<NumberOfEvents currentNOE={3} />)
-            const showDetails = EventComponent.queryByText('Show details');
-              await user.click(showDetails);
+          const AppDOM = AppComponent.container.firstChild;
+          const NumberOfEventDOM = AppDOM.querySelector('#number-of-events');
+          const numberOFEventsTextBox = within(NumberOfEventDOM).queryByRole('textbox');
+          await user.type(numberOFEventsTextBox, "{backspace}{backspace}3");
         });
 
         then('I should be able to see a list of events with the number I typed as the length', async () => {
