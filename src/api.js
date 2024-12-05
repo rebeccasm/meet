@@ -1,8 +1,6 @@
 // src/api.js
 
 import mockData from './mock-data';
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 
 /**
  *
@@ -16,6 +14,14 @@ export const extractLocations = (events) => {
   const extractedLocations = events.map((event) => event.location);
   const locations = [...new Set(extractedLocations)];
   return locations;
+};
+
+const checkToken = async (accessToken) => {
+  const response = await fetch(
+    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+  );
+  const result = await response.json();
+  return result;
 };
 
 const removeQuery = () => {
@@ -33,42 +39,6 @@ const removeQuery = () => {
   }
 };
 
-const checkToken = async (accessToken) => {
-  const response = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-  );
-  const result = await response.json();
-  return result;
-};
-
-/**
- *
- * This function will fetch the list of all events
- */
-export const getEvents = async () => {
- if (window.location.href.startsWith('http://localhost')) {
-    return mockData;
-  }
-if (!navigator.onLine) {
-    const events = localStorage.getItem("lastEvents");
-    NProgress.done();
-    return events?JSON.parse(events):[];
-  }
-  const token = await getAccessToken();
-
-  if (token) {
-    removeQuery();
-    const url =  "https://7jrly0kggg.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" + "/" + token;
-    const response = await fetch(url);
-    const result = await response.json();
-    if (result) {
-      NProgress.done();
-      localStorage.setItem("lastEvents", JSON.stringify(result.events));
-      return result.events;
-    } else return null; 
-  }
-};
-
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const response = await fetch(
@@ -79,6 +49,36 @@ const getToken = async (code) => {
 
   return access_token;
 };
+
+/**
+ *
+ * This function will fetch the list of all events
+ */
+export const getEvents = async () => {
+ if (window.location.href.startsWith('http://localhost')) {
+    return mockData;
+  }
+
+    if (!navigator.onLine) {
+        const stringifiedEvents = localStorage.getItem('lastEvents');
+        const events = stringifiedEvents ? JSON.parse(stringifiedEvents) : [];
+        return events;
+    }
+
+  const token = await getAccessToken();
+
+  if (token) {
+    removeQuery();
+    const url =  "https://7jrly0kggg.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" + "/" + token;
+    const response = await fetch(url);
+    const result = await response.json();
+    if (result) {
+      localStorage.setItem("lastEvents", JSON.stringify(result.events));
+      return result.events;
+    } else return null; 
+  }
+};
+
 
 export const getAccessToken = async () => {
  const accessToken = localStorage.getItem('access_token');
