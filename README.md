@@ -43,6 +43,23 @@ implementation code
 ● Conduct automated end-to-end testing for an app
 ● Handle testing errors in the terminal
 
+Exercise 4.7: Continuous Delivery
+● Discuss how CI and CD practices can help developers and organizations deliver
+high-quality products
+● Integrate an APM tool into the development of a web app
+
+Exercise 4.8: Object-Oriented Programming (OOP)
+● Define core concepts related to the OOP paradigm.
+● Differentiate between when to use functional programming (FP) and when to use OOP to
+solve architectural problems (and when to use both).
+● Implement a feature in your web app using OOP and React class components.
+
+Exercise 4.9: Progressive Web Apps
+● Discuss what progressive web apps (PWAs) are and how they compare to regular web apps
+and native apps.
+● Explain the core functionality of PWAs.
+● Implement progressive functionality into an existing app, so that the app can be used offline
+and added to a user’s home screen.
 
 USER STORIES
 
