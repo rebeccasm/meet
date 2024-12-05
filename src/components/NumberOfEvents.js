@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const NumberOfEvents = ({ currentNOE, setCurrentNOE }) => {
+const NumberOfEvents = ({ currentNOE, setCurrentNOE, setErrorAlert }) => {
 
   const [number, setNumber] = useState(currentNOE);
 
@@ -10,7 +10,15 @@ const NumberOfEvents = ({ currentNOE, setCurrentNOE }) => {
     const value = event.target.value;
     setNumber(value)
     setCurrentNOE(value);
-  }
+    if(isNaN(value) || value <= 0) {
+      setErrorAlert('Enter a valid number');
+    } else if (value > 32) {
+      setErrorAlert('Only maximum of 32 is allowed');
+    } else {
+      setErrorAlert('');
+      setCurrentNOE(value);
+    }
+  };
 
   return (
     <div id="number-of-events">
@@ -24,6 +32,6 @@ const NumberOfEvents = ({ currentNOE, setCurrentNOE }) => {
       />
     </div>
   );
-}
+};
 
 export default NumberOfEvents;
