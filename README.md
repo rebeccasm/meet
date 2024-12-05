@@ -36,6 +36,14 @@ Exercise 4.5: Integration Testing
 ● Develop implementation code in response to integration tests
 ● Integrate real data from an API into a web app
 
+Exercise 4.6: User Acceptance Testing & End-to-End Testing
+● Describe the purpose of end-to-end testing during development
+● Write acceptance tests for an app to help non-developer stakeholders understand
+implementation code
+● Conduct automated end-to-end testing for an app
+● Handle testing errors in the terminal
+
+
 USER STORIES
 
 Feature 1: Filter Events By City
