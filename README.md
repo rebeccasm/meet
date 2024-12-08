@@ -61,6 +61,11 @@ and native apps.
 ● Implement progressive functionality into an existing app, so that the app can be used offline
 and added to a user’s home screen.
 
+Exercise 4.10: Data Visualization
+● Transform API data into a visual format using a visualization library.
+● Implement data visualization features into a web app’s UI.
+● Conduct research into a library’s documentation to implement new features.
+
 USER STORIES
 
 Feature 1: Filter Events By City
