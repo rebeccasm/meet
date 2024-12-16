@@ -63,7 +63,7 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url =  "https://7jrly0kggg.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" + "/" + token;
+    const url =  'https://7jrly0kggg.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
@@ -83,7 +83,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const response = await fetch(
-        "https://7jrly0kggg.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url"
+        'https://7jrly0kggg.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url'
       );
       const result = await response.json();
       const { authUrl } = result;

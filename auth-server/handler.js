@@ -92,7 +92,7 @@ module.exports.getCalendarEvents = async (event) => {
     // logic to fetch calendar events
     calendar.events.list(
       {
-        calendarId: calender_id,
+        calendarId: CALENDAR_ID,
         auth: oAuth2Client,
         timeMin: new Date().toISOString(),
         singleEvents: true,
